@@ -63,10 +63,10 @@ jobs:
     needs: [Docker-image]
     steps:
       - name: Download code
-      uses: actions/download-artifact@v1
-      with:
-        name: code
-        path: .
+        uses: actions/download-artifact@v1
+        with:
+          name: code
+          path: .
       - name: Execute performance test
         run: chmod +x ci/performance-test.sh && ci/performance-test.sh
       
