@@ -21,4 +21,10 @@ jobs:
         with: 
           name: code
           path: .
+      - name: Download a single artifact
+        needs: Upload a Build Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+          path: path/to/download/artifact/
         
