@@ -6,7 +6,7 @@ env: # Set the secret as an input
   GIT_COMMIT: ${{ github.sha }}
 jobs:
   Clone-down:
-    runs-on: [self-hosted]
+    runs-on: [ubuntu-latest]
     container: gradle:6-jdk11
     steps:
     - uses: actions/checkout@v2
@@ -48,7 +48,7 @@ jobs:
     - name: push docker
       run: chmod +x ci/push-docker.sh && ci/push-docker.sh
   Component-test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted]
     needs: [Docker-image]
     steps:
     - name: Download code
